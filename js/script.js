@@ -4,8 +4,8 @@
   });*/
 
   const titleClickHandler = function(event) {
+    const clickedElement = this;
     console.log('Link was clicked!');
-    console.log(event);
 
     /*remove class 'active' from all article links*/
 
@@ -14,7 +14,11 @@
     for(let activeLink of activeLinks) {
         activeLink.classList.remove('active');
     }
-    /*add class 'active' to the clicked link'*/
+    /*add class 'active' to the clicked link*/
+
+    clickedElement.classList.add('active');
+    console.log('clickedElement:', clickedElement);
+
 
     /*remove class 'active' from all articles*/
 
@@ -23,7 +27,7 @@
     for (let activeArticle of activeArticles) {
         activeArticle.classList.remove('active');
     }
-    /*get 'href attribute from the clicked link*/
+    /*get 'href' attribute from the clicked link*/
 
     /*find the correct article using the selector (value of 'href' attribute)*/
 
