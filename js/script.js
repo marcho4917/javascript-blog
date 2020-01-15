@@ -1,9 +1,5 @@
-/*document.getElementById('test-button').addEventListener('click', function(){
-    const links = document.querySelectorAll('.titles a');
-    console.log('links:', links);
-  });*/
-
-  const titleClickHandler = function(event) {
+{
+const titleClickHandler = function(event) {
     event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
@@ -48,3 +44,11 @@
   for(let link of links) {
     link.addEventListener('click', titleClickHandler);
   }
+
+  const generateTitleLinks = function() {
+
+
+  }
+  
+  generateTitleLinks();
+}
