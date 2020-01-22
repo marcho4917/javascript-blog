@@ -134,7 +134,7 @@
     }/* END LOOP: for each active tag link */
   
     /* find all tag links with "href" attribute equal to the "href" constant */
-    const sameTags = document.querySelectorAll('a[href"'+ href + '"]');
+    const sameTags = document.querySelectorAll('a[href="'+ href + '"]');
 
     /* START LOOP: for each found tag link */
     for (let sameTag of sameTags) {
