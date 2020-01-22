@@ -180,7 +180,7 @@
       const articleAuthor = article.getAttribute('data-author');
 
       /* generate HTML of the link */
-      const linkHTML = '<li><a href="#' + articleAuthor + '">' + articleAuthor +'</a></li>';
+      const linkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor +'</a></li>';
 
       /* add generated code to html variable */
       html = html + linkHTML;
@@ -191,6 +191,32 @@
   }
 
   generateAuthors();
+
+  function authorClickHandler(event){
+    /* prevent default action for this event */
+    event.preventDefault();
+    /* make new constant named "clickedElement" and give it the value of "this" */
+    const clickedElement = this;
+
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+    const href = clickedElement.getAttribute('href');
+
+    /* make a new constant "author" and extract author from the "href" constant */
+    const author = href.replace('#author-', '');
+
+    /* find all author links with class active */
+    const authorLinks = document.querySelectorAll('a.active[href^="#author-"]');
+    
+    /* START LOOP: for each active author link */
+    for (let authorLink of authorLinks) {
+    
+      /* remove class active */
+      authorLink.classList.remove('active');
+    }/* END LOOP: for each active author link */
+  
+    /* execute function "generateTitleLinks" with article selector as argument */
+    generateTitleLinks('[data-author="' + author + '"]');
+  }
 
   function addClickListenersToAuthors() {
     /* find all links to authors */
@@ -203,5 +229,6 @@
       authorLink.addEventListener('click', authorClickHandler);
     }
   }
+  addClickListenersToAuthors();
 
 }
