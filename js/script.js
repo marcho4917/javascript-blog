@@ -101,6 +101,7 @@ function calculateTagClass (count, params) {
 
   return classValue;
 }
+
 function generateTags() {
   /* [NEW] create a new variable allTags with an empty object */
   let allTags = {};
@@ -112,7 +113,7 @@ function generateTags() {
   for(let article of articles) {
   
     /* find tags wrapper */
-    const tagsWrapper = article.querySelector(optArticleTagsSelector);
+    const tagList = article.querySelector(optArticleTagsSelector);
   
     /* make html variable with empty string */
     let html = '';
@@ -139,32 +140,37 @@ function generateTags() {
       } else {
         allTags[tag]++;
       }
+      
+    }/* END LOOP: for each tag */
+       
+    /* insert HTML of all the links into the tags wrapper */
+    tagList.innerHTML = html;
+  }  /* END LOOP: for every article: */
+  /* [NEW] find list of tags in right column */
+  const tagList = document.querySelector('.tags');
 
-      /* insert HTML of all the links into the tags wrapper */
-      tagsWrapper.innerHTML = html;
-    }  /* END LOOP: for every article: */
-    /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector('.tags');
+ /* [NEW] find list of tags in right column */
  
-    const tagsParams = calculateTagsParams(allTags);
-    console.log('tagsParams', tagsParams);
+  const tagsParams = calculateTagsParams(allTags);
+  console.log('tagsParams', tagsParams);
 
-    /* [NEW]creaate variable for all links HTML code*/
-    let allTagsHTML = '';
+  /* [NEW]creaate variable for all links HTML code*/
+  let allTagsHTML = '';
 
-    /*[NEW]start loop: for each tag in allTags:*/
-    for (let tag in allTags) {
+  /*[NEW]start loop: for each tag in allTags:*/
+  for (let tag in allTags) {
 
       /*[NEW]generate code of a link and add it to allTagsHTML*/
       const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#' + tag + '">' + tag + ' ' + '(' + allTags[tag] + ')' + '</a></li>'; 
       console.log('tagLinkHTML:', tagLinkHTML);
-    
-    /*[NEW]add html from allTagsHTML to tagList*/
-    allTagsHTML += tagLinkHTML; 
-  }
-}
   
-}
+      /*[NEW]add html from allTagsHTML to tagList*/
+      allTagsHTML += tagLinkHTML; 
+  }
+  }
+  
+  
+
 generateTags();
 
 function tagClickHandler(event){
