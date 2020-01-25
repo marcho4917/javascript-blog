@@ -81,6 +81,35 @@ body {
   display: inline-block;
 }
 
+/* Tags */
+.sidebar .tags li {
+  display: inline;
+}
+
+.sidebar .tags a {
+  text-decoration: none;
+}
+
+.tag-size-1 {
+  font-size: 15px;
+}
+
+.tag-size-2 {
+  font-size: 20px;
+}
+
+.tag-size-3 {
+  font-size: 30px;
+}
+
+.tag-size-4 {
+  font-size: 40px;
+}
+
+.tag-size-5 {
+  font-size: 30px;
+}
+
 /* Authors */
 .authors li {
   margin-bottom: 12px;
