@@ -131,11 +131,11 @@ body {
 /* Post */
 
 .post {
-    display: none;
+    visibility: hidden;
     opacity: 0;
     position: absolute;
     &.active {
-        display: block;
+        visibility: visible;
         transition-duration: 2s;
         opacity: 1;
         position: relative;
