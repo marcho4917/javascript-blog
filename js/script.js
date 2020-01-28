@@ -153,13 +153,14 @@ function generateTags() {
       } else {
         allTags[tag]++;
       }
-
-    }/* END LOOP: for each tag */
+    /* END LOOP: for each tag */
+    }
   
     /* insert HTML of all the links into the tags wrapper */
     titleList.innerHTML = html; 
 
-  }/* END LOOP: for every article: */
+  /* END LOOP: for every article: */
+  }
 
   /*find list of tags in right column*/
   const tagList = document.querySelector('.tags');
@@ -179,8 +180,8 @@ function generateTags() {
       count: allTags[tag],
       className: calculateTagClass(allTags[tag], tagsParams)
     });
-
-  }/*END LOOP: for each tag in allTags: */
+  /*END LOOP: for each tag in allTags: */
+  }
 
   /*add HTML from allTagsData to tagList */
   tagList.innerHTML = templates.tagCloudLink(allTagsData);
@@ -210,7 +211,8 @@ function tagClickHandler(event) {
     
     /* remove class active */
     tagLink.classList.remove('active');
-  }/* END LOOP: for each active tag link */
+    /* END LOOP: for each active tag link */
+  }
   
   /* find all tag links with "href" attribute equal to the "href" constant */
   const sameTags = document.querySelectorAll('a[href="'+ href + '"]');
@@ -220,7 +222,8 @@ function tagClickHandler(event) {
 
     /* add class active */
     sameTag.classList.add('active');
-  }/* END LOOP: for each found tag link */
+    /* END LOOP: for each found tag link */
+  }
   
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-tags~="' + tag + '"]');
@@ -246,8 +249,8 @@ function addClickListenersToTags() {
 
     /* add tagClickHandler as event listener for that link */
     tagLink.addEventListener('click', tagClickHandler); 
-
-  }/* END LOOP: for each link */
+    /* END LOOP: for each link */
+  }
 }
   
 addClickListenersToTags();
@@ -335,7 +338,8 @@ function authorClickHandler(event) {
     
     /* remove class active */
     authorLink.classList.remove('active');
-  }/* END LOOP: for each active author link */
+    /* END LOOP: for each active author link */
+  }
 
   /* find all author links with "href" attribute equal to the "href" constant */
   const sameAuthors = document.querySelectorAll('a[href="' + href + '"]');
