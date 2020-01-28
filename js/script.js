@@ -73,9 +73,6 @@ function generateTitleLinks(customSelector = '') {
     const linkHTMLData = {id: articleId, title: articleTitle};
     const linkHTML = templates.articleLink(linkHTMLData);
 
-    /*create HTML of the link without handlebars
-    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle +'</span></a></li>';*/
-
     html = html + linkHTML;
     
   }
@@ -145,9 +142,6 @@ function generateTags() {
       const linkHTMLData = {id: tag, title: tag};
       const linkHTML = templates.tagLink(linkHTMLData);
 
-      /*create HTML of the link without handlebars
-      const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag +'</span></a></li> ';*/
-
       /* add generated code to html variable */
       html = html + linkHTML;
 
@@ -176,9 +170,6 @@ function generateTags() {
   /*create new constant for handlebars*/
   const allTagsData = {tags: []};
 
-  /*create variable for all links HTML code
-  let allTagsHTML = '';*/
-
   /*START LOOP: for each tag in allTags: */
   for(let tag in allTags) {
 
@@ -189,8 +180,6 @@ function generateTags() {
       className: calculateTagClass(allTags[tag], tagsParams)
     });
 
-    /*generate code of a link without handlebars and add it to allTagsHTML 
-    allTagsHTML += '<li><a href="#tag-' + tag + '" class="' + calculateTagClass(allTags[tag], tagsParams) + '">' + tag + ' ' + '</a></li> ';*/
   }/*END LOOP: for each tag in allTags: */
 
   /*add HTML from allTagsData to tagList */
@@ -275,9 +264,6 @@ function generateAuthors() {
     const linkHTMLData = {id: articleAuthor, title: articleAuthor};
     const linkHTML = templates.authorLink(linkHTMLData);
 
-    /*create HTML of the link without handlebars
-    const linkHTML = '<li><a href="#author-' + articleAuthor + '">' + articleAuthor +'</a></li>';*/
-
     /* add generated code to html variable */
     html = html + linkHTML;
 
@@ -309,8 +295,7 @@ function generateAuthors() {
       author: author,
       count: allAuthors[author]
     });
-    /*generate code of a link without handlebars
-    allAuthorsHTML += '<li><a href = "#author-' + articleAuthor + '" + class ="' + 'author' + '">' + articleAuthor + ' (' + allAuthors[articleAuthor] + ')' + '</a></li>';*/
+   
   }
 
   /*add html from allAuthorsData to authorList*/
