@@ -228,6 +228,7 @@ function tagClickHandler(event) {
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-tags~="' + tag + '"]');
 
+  
   /*make new const to find active author */
   const authorLinks = document.querySelectorAll('a.active[href^="#author-"]');
     
@@ -354,6 +355,7 @@ function authorClickHandler(event) {
   /* execute function "generateTitleLinks" with article selector as argument */
   generateTitleLinks('[data-author="' + author + '"]');
 
+  
   /* find all tag links with class active */
   const tagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
 
